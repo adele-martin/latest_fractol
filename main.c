@@ -2,7 +2,7 @@
 
 void get_julia_values(t_fractal *fractal, char **argv, int argc)
 {
-	if (argc == 4 && argv[2] && argv[3])
+	if (argc >= 4 && argv[2] && argv[3])
 		{
 			fractal->param_x = ft_atof(argv[2]);
 			fractal->param_y = ft_atof(argv[3]);

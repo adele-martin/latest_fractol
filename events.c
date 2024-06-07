@@ -18,7 +18,6 @@ int handle_keys(int key, t_fractal *fractal)
 	return (0);
 }
 
-
 int handle_mouse(int button, int x, int y, t_fractal *fractal)
 {
 	(void)y;
