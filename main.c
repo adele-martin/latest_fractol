@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 	fractal_init(&fractal);
 	render_fractal(&fractal);
 	mlx_key_hook(fractal.win, handle_keys, &fractal);
-	//mlx_hook(fractal.win, handle_mouse, &fractal);
+	mlx_mouse_hook(fractal.win, handle_mouse, &fractal);
 	mlx_hook(fractal.win, DestroyNotify,
 	StructureNotifyMask, kill_window, &fractal);
 	mlx_loop(fractal.mlx_ptr);

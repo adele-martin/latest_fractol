@@ -15,14 +15,15 @@ int handle_keys(int key, t_fractal *fractal)
 	return (0);
 }
 
-/*
+
 int handle_mouse(int button, int x, int y, t_fractal *fractal)
 {
-    if (key == KEY_RIGHT) //right arrow --> zoom in
+	(void)y;
+	(void)x;
+    if (button == MOUSE_UP) //right arrow --> zoom in
 		fractal->zoom *= 0.5;
-	else if (key == KEY_LEFT) //left arrow
+	else if (button == MOUSE_DOWN) //left arrow
 		fractal->zoom *= 2.0;
 	render_fractal(fractal);
     return (0);
 }
-*/

@@ -57,6 +57,10 @@ typedef struct s_fractal
 # define KEY_RIGHT 65363
 # define KEY_LEFT 65361
 
+//Mouse wheel
+# define MOUSE_UP 4
+# define MOUSE_DOWN 5
+
 //Handle arguments
 int handle_arguments(t_fractal *fractal, char **argv, int argc);
 void get_julia_values(t_fractal *fractal, char **argv, int argc);
@@ -89,6 +93,7 @@ int	get_t(int trgb);
 int	get_r(int trgb);
 int	get_g(int trgb);
 int	get_b(int trgb);
-int get_color(int iter);
+// int get_color(int iter);
+int get_color(int iter, int max_iter);
 
 #endif
