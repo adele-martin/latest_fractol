@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademarti <ademarti@student.42berlin.de     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/07 18:32:08 by ademarti          #+#    #+#             */
+/*   Updated: 2024/06/07 18:32:11 by ademarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 int	create_trgb(int t, int r, int g, int b)
@@ -20,13 +32,6 @@ int	get_blue(int trgb)
 	return ((trgb & 0xFF));
 }
 
-// int get_color(int iter)
-// {
-// 	int	color;
-// 	color = iter * 25;
-// 	return (create_trgb(0, get_red(color), get_green(color), get_blue(color)));
-// }
-
 int blend_with_white(int color, float blend_factor)
 {
     int red = get_red(color);
@@ -39,7 +44,7 @@ int blend_with_white(int color, float blend_factor)
 
     red = (int)(red + blend_factor * (255 - red));
     // green = green + blend_factor * (255 - green);
-    // blue = (int)(blue + blend_factor * (255 - blue));
+    blue = (int)(blue + blend_factor * (255 - blue));
 
     return create_trgb(0, red, green, blue);
 }
@@ -55,14 +60,5 @@ int get_color(int iter, int max_iter)
     color = create_trgb(0, get_red(color), get_green(color), get_blue(color));
 	distance_factor = (float)iter / max_iter;
 	blend_factor = pow(1.0 - distance_factor, 3.0);
-	// float brightness_factor;
-	// brightness_factor = 1.0 + 4.0 * (1.0 - distance_factor);
-
-	// color = create_trgb(
-    //     0,
-    //     fmin(get_red(color) * brightness_factor, 255),
-    //     fmin(get_green(color) * brightness_factor, 255),
-    //     fmin(get_blue(color) * brightness_factor, 255)
-    // );
     return blend_with_white(color, blend_factor);
 }

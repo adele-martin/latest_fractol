@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademarti <ademarti@student.42berlin.de     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/07 18:32:38 by ademarti          #+#    #+#             */
+/*   Updated: 2024/06/07 18:56:41 by ademarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -49,13 +61,15 @@ typedef struct s_fractal
 } t_fractal;
 
 //Window dimensions
-# define WIDTH	800
-# define HEIGHT	800
+# define WIDTH	1450
+# define HEIGHT	1450
 
 // Keys
 # define KEY_ESC 65307
 # define KEY_RIGHT 65363
 # define KEY_LEFT 65361
+# define KEY_UPWARDS 65362
+# define KEY_DOWNWARDS 65364
 
 //Mouse wheel
 # define MOUSE_UP 4
