@@ -1,6 +1,6 @@
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
-XTRAFLAGS = -Ilibft
+CFLAGS = -Wall -Werror -Wextra
+XTRAFLAGS = -g -Ilibft
 MLX_FLAGS = -Lmlx -L/usr/lib/X11 -lXext -lX11 -lm
 
 NAME = fractol
@@ -16,7 +16,7 @@ SRC = 	main.c \
 		render.c \
 		julia.c \
 		clean_and_exit.c \
-
+		utils_color.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -35,8 +35,6 @@ $(NAME): $(OBJ) libraries
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(XTRAFLAGS) -c $< -o $@
-
-
 
 clean:
 	rm -f $(OBJ)

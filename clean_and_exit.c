@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   clean_and_exit.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ademarti <ademarti@student.42berlin.de     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/10 12:06:49 by ademarti          #+#    #+#             */
+/*   Updated: 2024/06/10 12:07:12 by ademarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-int exit_clean(t_fractal *fractal)
+int	exit_clean(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx_ptr, fractal->image.img_ptr);
 	mlx_destroy_window(fractal->mlx_ptr, fractal->win);
@@ -11,7 +23,7 @@ int exit_clean(t_fractal *fractal)
 	exit(0);
 }
 
-int kill_window(t_fractal *fractal)
+int	kill_window(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx_ptr, fractal->image.img_ptr);
 	mlx_destroy_window(fractal->mlx_ptr, fractal->win);
