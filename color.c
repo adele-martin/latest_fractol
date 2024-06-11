@@ -6,7 +6,7 @@
 /*   By: ademarti <ademarti@student.42berlin.de     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:32:08 by ademarti          #+#    #+#             */
-/*   Updated: 2024/06/11 11:52:22 by ademarti         ###   ########.fr       */
+/*   Updated: 2024/06/11 12:40:39 by ademarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	blend_with_white(int color, float blend_factor)
 	white_blend = (color / 2) % 256;
 	blue = (blue + white_blend) / 2;
 	red = (int)(red + blend_factor * (255 - red));
-	green = green + blend_factor * (255 - green);
 	blue = (int)(blue + blend_factor * (255 - blue));
 	return (create_trgb(0, red, green, blue));
 }

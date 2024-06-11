@@ -6,7 +6,7 @@
 /*   By: ademarti <ademarti@student.42berlin.de     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:32:38 by ademarti          #+#    #+#             */
-/*   Updated: 2024/06/11 11:47:32 by ademarti         ###   ########.fr       */
+/*   Updated: 2024/06/11 12:14:54 by ademarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int		valid_param(char *argv);
 
 //Utils
 double	ft_atof(const char *str);
+int		ft_strcmp(const char *s1, const char *s2);
 
 //Initialization
 void	init_values(t_fractal *fractal);

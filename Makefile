@@ -5,6 +5,7 @@ MLX_FLAGS = -Lmlx -L/usr/lib/X11 -lXext -lX11 -lm
 
 NAME = fractol
 LIBFT = libft/libft.a
+MLX_PATH = minilibx-linux
 MLX = minilibx-linux/libmlx.a
 
 SRC = 	main.c \
@@ -18,33 +19,27 @@ SRC = 	main.c \
 		clean_and_exit.c \
 		utils_color.c
 
-OBJ = $(SRC:.c=.o)
+OBJS = $(SRC:.c=.o)
+
+all:	$(NAME) $(MLX)
 
 $(LIBFT):
 	$(MAKE) -C libft
 
-$(MLX):
-	$(MAKE) -C minilibx-linux
-
-libraries: $(LIBFT) $(MLX)
-
-all: $(NAME)
-
-$(NAME): $(OBJ) libraries
-	$(CC) $(XTRAFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS)
-
-%.o: %.c
-	$(CC) $(CFLAGS) $(XTRAFLAGS) -c $< -o $@
+$(NAME): $(OBJS) $(LIBFT)
+	$(MAKE) -C $(MLX_PATH)
+	$(CC) $(OBJS) -L$(MLX_PATH) $(LIBFT) -lmlx_Linux -lX11 -lXext -lm -o $(NAME)
 
 clean:
-	rm -f $(OBJ)
-	$(MAKE) -C libft clean
-	$(MAKE) -C minilibx-linux clean
+		rm -f $(OBJS)
+		$(MAKE) clean -C $(MLX_PATH)
+		$(MAKE) -C libft clean
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) -C libft fclean
+		rm -f $(NAME) $(MLX)
+		rm -f $(NAME) $(LIBFT)
+		$(MAKE) -C libft fclean
 
-re: fclean all
+re:		fclean all
 
 .PHONY: all clean fclean re

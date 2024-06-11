@@ -6,7 +6,7 @@
 /*   By: ademarti <ademarti@student.42berlin.de     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:06:24 by ademarti          #+#    #+#             */
-/*   Updated: 2024/06/11 12:04:43 by ademarti         ###   ########.fr       */
+/*   Updated: 2024/06/11 12:47:05 by ademarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,14 @@ int	valid_param(char *argv)
 			argv++;
 		else
 		{
-			ft_putstr_fd("The valid format is a sign followed by a number \n", 1);
+			ft_putstr_fd("The valid format is a sign followed by a number\n", 1);
 			exit(1);
 		}
 	}
 	return (1);
 }
 
-
-void get_julia_values(t_fractal *fractal, char **argv, int argc)
+void	get_julia_values(t_fractal *fractal, char **argv, int argc)
 {
 	if (argc >= 4 && argv[2] && argv[3])
 	{
@@ -47,18 +46,17 @@ void get_julia_values(t_fractal *fractal, char **argv, int argc)
 	else
 	{
 		ft_putstr_fd("Invalid input. Please enter <./fractal> and a fractal set.\n \
-		 Available fractal sets are 'mandelbrot' and 'julia'.\n",
-					 1);
+		 Available fractal sets are 'mandelbrot' and 'julia'.\n", 1);
 		exit(1);
 	}
 }
 
-int handle_arguments(t_fractal *fractal, char **argv, int argc)
+int	handle_arguments(t_fractal *fractal, char **argv, int argc)
 {
 	fractal->name = argv[1];
-	if ((ft_strncmp(fractal->name, "mandelbrot", 10) == 0) && argc == 2)
+	if ((ft_strcmp(fractal->name, "mandelbrot") == 0) && argc == 2)
 		return (1);
-	else if ((ft_strncmp(fractal->name, "julia", 5) == 0))
+	else if ((ft_strcmp(fractal->name, "julia") == 0))
 	{
 		get_julia_values(fractal, argv, argc);
 		return (1);
@@ -67,23 +65,22 @@ int handle_arguments(t_fractal *fractal, char **argv, int argc)
 		return (0);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_fractal fractal;
+	t_fractal	fractal;
 
 	if (argc < 2 || handle_arguments(&fractal, argv, argc) == 0)
 	{
 		ft_putstr_fd("Invalid input.Please enter <./fractal> and a fractal set.\n \
-		Available fractal sets are 'mandelbrot' and 'julia'.\n",
-					 1);
+		Available fractal sets are 'mandelbrot' and 'julia'.\n", 1);
 		exit(1);
 	}
 	fractal_init(&fractal);
 	render_fractal(&fractal);
 	mlx_key_hook(fractal.win, handle_keys, &fractal);
 	mlx_mouse_hook(fractal.win, handle_mouse, &fractal);
-	mlx_hook(fractal.win, DestroyNotify,
-			 StructureNotifyMask, kill_window, &fractal);
+	mlx_hook(fractal.win, DestroyNotify, \
+	StructureNotifyMask, kill_window, &fractal);
 	mlx_loop(fractal.mlx_ptr);
 	exit_clean(&fractal);
 }
