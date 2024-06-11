@@ -6,7 +6,7 @@
 /*   By: ademarti <ademarti@student.42berlin.de     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:32:38 by ademarti          #+#    #+#             */
-/*   Updated: 2024/06/10 14:54:34 by ademarti         ###   ########.fr       */
+/*   Updated: 2024/06/11 11:47:32 by ademarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct s_fractal
 //Handle arguments
 int		handle_arguments(t_fractal *fractal, char **argv, int argc);
 void	get_julia_values(t_fractal *fractal, char **argv, int argc);
+int		valid_param(char *argv);
 
 //Utils
 double	ft_atof(const char *str);
